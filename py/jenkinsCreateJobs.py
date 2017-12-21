@@ -28,7 +28,12 @@ def pushit():
         last_build_number = 0
 
     while True:
-        lbn = j.get_job_info(job1)['lastCompletedBuild']['number']
+
+        try:
+            lbn = j.get_job_info(job1)['lastCompletedBuild']['number']
+        except:
+            lbn = 0
+
         if last_build_number == lbn:
             sleep(1)
         else:
