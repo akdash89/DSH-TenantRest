@@ -1,23 +1,15 @@
 # -*- coding: utf-8 -*-
-import os 
 import json
-from kafka import KafkaProducer
-from kafka import KafkaConsumer
+from kafka import KafkaProducer, KafkaConsumer
 import subprocess
-
-from os.path import expanduser
-home = expanduser("~")
-
-dMountedDisk = os.path.join(home, 'Documents', 'dockerRF', 'mountedDisk')
+from TenantRestConfig import *
 
 def main(): 
     global dMountedDisk    
     topic = 'vialis'
 
     # To consume latest messages and auto-commit offsets
-    consumer = KafkaConsumer(topic,
-                             group_id='run-group',
-                             bootstrap_servers=['localhost:9092'])
+    consumer = KafkaConsumer(topic, group_id='run-group', bootstrap_servers=['localhost:9092'])
     for message in consumer:
         # message value and key are raw bytes -- decode if necessary!
         # e.g., for unicode: `message.value.decode('utf-8')`
@@ -49,7 +41,7 @@ def main():
             
             producer.send(topic, key=b'Testresults', value=jData)
             
-            print('Remove xml and html files')
+            #print('Remove xml and html files')
             #subprocess.run(['/bin/bash', '-c', 'rm -f /home/rakeshlaptop/Documents/dockerRF/mountedDisk/Testresults/out*'])
             #subprocess.run(['/bin/bash', '-c', 'rm -f /home/rakeshlaptop/Documents/dockerRF/mountedDisk/Testresults/*.html'])
             
@@ -59,27 +51,3 @@ def main():
  
 if __name__ == "__main__":
     main()
-
-'''
-# consume json messages
-KafkaConsumer(value_deserializer=lambda m: json.loads(m.decode('ascii')))
-
-# consume msgpack
-KafkaConsumer(value_deserializer=msgpack.unpackb)
-
-# StopIteration if no message after 1sec
-KafkaConsumer(consumer_timeout_ms=1000)
-
-# Subscribe to a regex topic pattern
-consumer = KafkaConsumer()
-consumer.subscribe(pattern='^awesome.*')
-
-# Use multiple consumers in parallel w/ 0.9 kafka brokers
-# typically you would run each on a different server / process / CPU
-consumer1 = KafkaConsumer('my-topic',
-                          group_id='my-group',
-                          bootstrap_servers='my.server.com')
-consumer2 = KafkaConsumer('my-topic',
-                          group_id='my-group',
-                          bootstrap_servers='my.server.com')
-'''

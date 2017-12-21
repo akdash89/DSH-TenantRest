@@ -8,10 +8,10 @@ stop:
 	@docker stop dockerrfpy27
 
 listen: 
-	@cd py && python3 kafkaConsumeRunCommand.py -d
+	@cd py && python3 kafkaConsumeRunCommand.py &
 
 jenkins:
 
-	@cd py && pytjon3 jenkinsCreateJobs.py -d
+	@cd py && python3 jenkinsCreateJobs.py &
 
 

@@ -1,22 +1,15 @@
 #https://python-jenkins.readthedocs.io/en/latest/examples.html#example-3-working-with-jenkins-jobs
 import jenkins
-import os
 from tkinter import *
-from os.path import expanduser
+from TenantRestConfig import *
 from time import sleep
 
-home = expanduser("~")
-topic = 'vialis'
-pLogo = os.path.join('/home/rakeshlaptop/Documents/dockerRF/DSH-Jenkins2','vialis.png')
-dMountedDisk = os.path.join(home, 'Documents', 'dockerRF', 'mountedDisk')
-templatePushMDisk = os.path.join('/home/rakeshlaptop/Documents/dockerRF/DSH-Jenkins2/configs','push-mountedDisk.xml')
-templateExecKafkaRunCommand = os.path.join('/home/rakeshlaptop/Documents/dockerRF/DSH-Jenkins2/configs','executeProduceRunCommand.xml')
-fKafkaRunCommand = os.path.join('/home/rakeshlaptop/Documents/dockerRF/DSH-kafka', 'kafkaProduceRunCommand.py')
 ###############################
 def pushit():
     global j, dMountedDisk, topic
     lb1.delete(0, 'end')
     lb1.insert(0, 'All')
+
     #Push from git url to mounted disk
     job1 = '{}-pushMountedDisk'.format(topic) 
     
@@ -66,23 +59,10 @@ def runit():
 #################OPEN JENKINS########################
 
 j = jenkins.Jenkins('http://localhost:8084', 'admin', 'rak24283')
-#print('Hello from %s' % (j.get_whoami()['fullName']))
-#jobs = j.get_jobs()
-#print (jobs)
-
-#my_job = j.get_job_config('executeProduceRunCommand.py')
-#print(my_job) # prints XML configuration
-#last_build_number = j.get_job_info('executeProduceRunCommand.py')['lastCompletedBuild']['number']
-#build_info = j.get_build_info('executeProduceRunCommand.py', last_build_number)
-#print (build_info)
-
-#try:
-#    j.delete_job('empty2')
 
 #################USER PROMT####################
 def quiting():
     global root
-    #root.quit()
     root.destroy()
 
 root = Tk()
@@ -91,9 +71,9 @@ root.geometry("600x1000")
 
 frame1 = Frame(root, bg='#ffffdd')
 
-logo = PhotoImage(file=pLogo)
-lblImg = Label(root, image=logo)
-lblImg.pack(side=TOP,padx=10,pady=10)
+#logo = PhotoImage(file=pLogo)
+#lblImg = Label(root, image=logo)
+#lblImg.pack(side=TOP,padx=10,pady=10)
 
 lbl1 = Label(root, text='Hello {}, complete the following prompts'.format(topic))
 lbl1.pack(side=TOP,padx=10,pady=10)
@@ -140,72 +120,3 @@ btn2 = Button(root, text='Run Test(s)', command=runit).pack(side=TOP)
 btn3 = Button(root, text='Close', command=quiting).pack(side= TOP)
 
 root.mainloop()
-
-#btn1.grid(row=0, column=0)
-#btn2.grid(row=0, column=1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#except:
-#    pass
-#j.build_job('empty')
-#j.disable_job('empty')
-#j.copy_job('empty', 'empty_copy')
-#j.enable_job('empty_copy')
-#j.reconfig_job('empty_copy', jenkins.RECONFIG_XML)
-
-'''
-info = j.run_script("""
-    import groovy.json.JsonBuilder;
-
-    // get all projects excluding matrix configuration
-    // as they are simply part of a matrix project.
-    // there may be better ways to get just jobs
-    items = Jenkins.instance.getAllItems(AbstractProject);
-    items.removeAll {
-      it instanceof hudson.matrix.MatrixConfiguration
-    };
-
-    def json = new JsonBuilder()
-    def root = json {
-      jobs items.collect {
-        [
-          name: it.name,
-          url: Jenkins.instance.getRootUrl() + it.getUrl(),
-          color: it.getIconColor().toString(),
-          fullname: it.getFullName()
-        ]
-      }
-    }
-
-    // use json.toPrettyString() if viewing
-    println json.toString()
-    """)
-#print(info)
-
-info2 = j.run_script("""
-    def sout = new StringBuilder(), serr = new StringBuilder()
-    def proc = 'sshpass -p rAk24283! ssh -oStrictHostKeyChecking=no rakeshlaptop@172.22.0.1 python3 /home/rakeshlaptop/Documents/dockerRF/DSH-kafka/kafkaProduceRunCommand.py -r vialis/Testcases/testcase1'.execute()
-    proc.consumeProcessOutput(sout, serr)
-    proc.waitForOrKill(1000)
-    println "out> $sout err> $serr"
-""")
-print(info2)
-'''
