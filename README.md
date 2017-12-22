@@ -5,6 +5,8 @@ Summary for usage:
 4. sudo make (only to do once)
 5. sudo make run
 
+if any error occurs with paths, execute sudo make down
+
 
 Additional info
 run .robot files

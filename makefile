@@ -2,10 +2,13 @@ build:
 	@docker build -t dockerrfpy27 --network=host .
 
 run:
-	@docker stop dkafka && docker rm dkafka && docker-compose up -d
+	@docker-compose up -d
 
 stop:
 	@docker stop dockerrfpy27
+
+down:
+	@docker-compose down
 
 stopkafka:
 	@docker stop dkafka && docker rm dkafka
