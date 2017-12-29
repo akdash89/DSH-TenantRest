@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171222 13:16:01.783" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/robot/Testcases" id="s1" name="Testcases">
+<suite source="/robot/Testcases/kafka" id="s1-s1" name="Kafka">
+<suite source="/robot/Testcases/kafka/kafka.robot" id="s1-s1-s1" name="Kafka">
+<kw type="setup" name="Connect To Kafka" library="KafkaLibrary">
+<doc>Connect to kafka</doc>
+<msg timestamp="20171222 13:16:01.857" level="INFO">Bootstrapping cluster metadata from [('127.0.0.1', 9092, 2)]</msg>
+<msg timestamp="20171222 13:16:01.857" level="INFO">&lt;BrokerConnection node_id=bootstrap host=127.0.0.1/127.0.0.1 port=9092&gt;: connecting to 127.0.0.1:9092</msg>
+<msg timestamp="20171222 13:16:01.857" level="ERROR">Connect attempt to &lt;BrokerConnection node_id=bootstrap host=127.0.0.1/127.0.0.1 port=9092&gt; returned error 111. Disconnecting.</msg>
+<msg timestamp="20171222 13:16:01.858" level="INFO">&lt;BrokerConnection node_id=bootstrap host=127.0.0.1/127.0.0.1 port=9092&gt;: Closing connection. ConnectionError: 111</msg>
+<msg timestamp="20171222 13:16:01.858" level="ERROR">Unable to bootstrap from [('127.0.0.1', 9092, 2)]</msg>
+<msg timestamp="20171222 13:16:01.859" level="FAIL">NoBrokersAvailable: NoBrokersAvailable</msg>
+<status status="FAIL" endtime="20171222 13:16:01.859" starttime="20171222 13:16:01.855"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="Connect to topics">
+<status status="FAIL" endtime="20171222 13:16:01.860" critical="yes" starttime="20171222 13:16:01.859">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
+</test>
+<test id="s1-s1-s1-t2" name="Create topic partition">
+<status status="FAIL" endtime="20171222 13:16:01.861" critical="yes" starttime="20171222 13:16:01.860">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
+</test>
+<test id="s1-s1-s1-t3" name="Send message">
+<status status="FAIL" endtime="20171222 13:16:01.861" critical="yes" starttime="20171222 13:16:01.861">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
+</test>
+<test id="s1-s1-s1-t4" name="Get kafka topics">
+<status status="FAIL" endtime="20171222 13:16:01.862" critical="yes" starttime="20171222 13:16:01.862">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
+</test>
+<test id="s1-s1-s1-t5" name="Get messages in topic">
+<status status="FAIL" endtime="20171222 13:16:01.863" critical="yes" starttime="20171222 13:16:01.862">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
+</test>
+<kw type="teardown" name="Close" library="KafkaLibrary">
+<msg timestamp="20171222 13:16:01.864" level="FAIL">AttributeError: 'NoneType' object has no attribute 'close'</msg>
+<status status="FAIL" endtime="20171222 13:16:01.864" starttime="20171222 13:16:01.863">AttributeError: 'NoneType' object has no attribute 'close'</status>
+</kw>
+<status status="FAIL" endtime="20171222 13:16:01.864" starttime="20171222 13:16:01.805">Suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable
+
+Also suite teardown failed:
+AttributeError: 'NoneType' object has no attribute 'close'</status>
+</suite>
+<status status="FAIL" endtime="20171222 13:16:01.865" starttime="20171222 13:16:01.802"></status>
+</suite>
+<suite source="/robot/Testcases/mqtt" id="s1-s2" name="Mqtt">
+<suite source="/robot/Testcases/mqtt/mqtt.robot" id="s1-s2-s1" name="Mqtt">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>set username and password</arg>
+<arg>fpvryavs</arg>
+<arg>Noq7_zN69dMe</arg>
+<arg>AND</arg>
+<arg>Connect</arg>
+<arg>m12.cloudmqtt.com</arg>
+<arg>port=15805</arg>
+</arguments>
+<kw name="Set Username And Password" library="MQTTLibrary">
+<arguments>
+<arg>fpvryavs</arg>
+<arg>Noq7_zN69dMe</arg>
+</arguments>
+<status status="PASS" endtime="20171222 13:16:01.883" starttime="20171222 13:16:01.883"></status>
+</kw>
+<kw name="Connect" library="MQTTLibrary">
+<doc>Connect to an MQTT broker. This is a pre-requisite step for publish</doc>
+<arguments>
+<arg>m12.cloudmqtt.com</arg>
+<arg>port=15805</arg>
+</arguments>
+<msg timestamp="20171222 13:16:01.883" level="INFO">Connecting to m12.cloudmqtt.com at port 15805</msg>
+<status status="PASS" endtime="20171222 13:16:02.096" starttime="20171222 13:16:01.883"></status>
+</kw>
+<status status="PASS" endtime="20171222 13:16:02.097" starttime="20171222 13:16:01.882"></status>
+</kw>
+<test id="s1-s2-s1-t1" name="Publish">
+<kw name="Publish" library="MQTTLibrary">
+<doc>Publish a message to a topic with specified qos and retained flag.</doc>
+<arguments>
+<arg>topic=${topic}</arg>
+<arg>message=${Message}</arg>
+</arguments>
+<msg timestamp="20171222 13:16:02.101" level="INFO">Publish topic: python/test, message: test message, qos: 0, retain: False</msg>
+<status status="PASS" endtime="20171222 13:16:02.102" starttime="20171222 13:16:02.099"></status>
+</kw>
+<status status="PASS" endtime="20171222 13:16:02.103" critical="yes" starttime="20171222 13:16:02.097"></status>
+</test>
+<test id="s1-s2-s1-t2" name="subscribe">
+<kw name="Subscribe" library="MQTTLibrary">
+<doc>Subscribe to a topic and return a list of message payloads received</doc>
+<arguments>
+<arg>topic=${topic}</arg>
+<arg>qos=1</arg>
+<arg>timeout=15</arg>
+<arg>limit=0</arg>
+</arguments>
+<assign>
+<var>${Topic_Message}</var>
+</assign>
+<msg timestamp="20171222 13:16:02.114" level="INFO">Subscribing to topic: python/test</msg>
+<msg timestamp="20171222 13:16:17.345" level="INFO">${Topic_Message} = []</msg>
+<status status="PASS" endtime="20171222 13:16:17.345" starttime="20171222 13:16:02.113"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Topic_Message}</arg>
+</arguments>
+<status status="PASS" endtime="20171222 13:16:17.345" starttime="20171222 13:16:17.345"></status>
+</kw>
+<status status="PASS" endtime="20171222 13:16:17.346" critical="yes" starttime="20171222 13:16:02.104"></status>
+</test>
+<kw type="teardown" name="Disconnect" library="MQTTLibrary">
+<doc>Disconnect from MQTT Broker.</doc>
+<status status="PASS" endtime="20171222 13:16:17.347" starttime="20171222 13:16:17.346"></status>
+</kw>
+<status status="PASS" endtime="20171222 13:16:17.347" starttime="20171222 13:16:01.868"></status>
+</suite>
+<status status="PASS" endtime="20171222 13:16:17.349" starttime="20171222 13:16:01.866"></status>
+</suite>
+<status status="FAIL" endtime="20171222 13:16:17.356" starttime="20171222 13:16:01.784"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="5" pass="2">Critical Tests</stat>
+<stat fail="5" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="5" id="s1" name="Testcases" pass="2">Testcases</stat>
+<stat fail="5" id="s1-s1" name="Kafka" pass="0">Testcases.Kafka</stat>
+<stat fail="5" id="s1-s1-s1" name="Kafka" pass="0">Testcases.Kafka.Kafka</stat>
+<stat fail="0" id="s1-s2" name="Mqtt" pass="2">Testcases.Mqtt</stat>
+<stat fail="0" id="s1-s2-s1" name="Mqtt" pass="2">Testcases.Mqtt.Mqtt</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20171222 13:16:01.857" level="ERROR">Connect attempt to &lt;BrokerConnection node_id=bootstrap host=127.0.0.1/127.0.0.1 port=9092&gt; returned error 111. Disconnecting.</msg>
+<msg timestamp="20171222 13:16:01.858" level="ERROR">Unable to bootstrap from [('127.0.0.1', 9092, 2)]</msg>
+</errors>
+</robot>
