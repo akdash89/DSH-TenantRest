@@ -1,5 +1,6 @@
 import argparse
 import time
+from TenantRestConfig import *
  
 from kafka import SimpleProducer, KafkaClient
 from kafka.common import LeaderNotAvailableError
@@ -27,7 +28,7 @@ def main():
         topic = args.run.split('/')[0]
         msg = bytes('RUN ' + str(args.run.split('/')[1]), 'utf8')
         
-        kafka = KafkaClient("127.0.0.1:9092")
+        kafka = KafkaClient(kafkaServer)
         producer = SimpleProducer(kafka)
         
         kafka.ensure_topic_exists(topic)

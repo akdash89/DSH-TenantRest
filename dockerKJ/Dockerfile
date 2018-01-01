@@ -1,29 +1,24 @@
-FROM ubuntu:16.04
+FROM openjdk:8u121-jdk-alpine
 MAINTAINER "rpartapsing" <r.partapsing@gmail.com>
-LABEL name="Docker image for Robot Framework inside venv"
+LABEL name="Docker image for Tenant with Jenkins"
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN apt-get -y update && apt-get upgrade -y
-RUN apt-get install python build-essential python-dev python-pip python-setuptools -y
-RUN apt-get install libxml2-dev libxslt1-dev python-dev -y
-RUN apt-get install iputils-ping ssh curl net-tools netcat -y
-RUN apt-get install vim -y
-RUN pip install virtualenv uwsgi
-RUN apt-get install sudo -y
+ARG ssh_port=22
 
-USER root
-ADD sudoers.txt /etc/sudoers
-RUN chmod 440 /etc/sudoers
+RUN apk add --no-cache git openssh-client curl unzip bash nano ttf-dejavu coreutils
+RUN apk add --no-cache python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+    rm -r /root/.cache
 
-#ADD Testcases /robot/Testcases
-ADD requirements /robot/requirements
-ADD runscript.sh /robot
-RUN chmod 777 /robot/runscript.sh
-#ADD Testresults /robot/Testresults
+ADD requirements /py/requirements
+ADD py /py
 
-VOLUME Testcases
-VOLUME Testresults
+WORKDIR /py
 
-RUN virtualenv /robot/venv
-RUN source /robot/venv/bin/activate && pip install -r /robot/requirements/requirements.txt
+EXPOSE ${ssh_port}
+
+RUN pip install -r /robot/requirements/requirements.txt
 RUN echo "done"
