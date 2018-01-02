@@ -1,21 +1,9 @@
 Summary for usage:
-1. Download/clone directory
-2. Put all your tests into 'Testcases' folder
-3. cd into projectfolder
-4. sudo make (only to do once)
-5. sudo make run
+1. DISPLAY=your_host_ip:0
+2. xhost +
+4. sudo docker build -t dockerkj --network=host .
+4. docker run -ti --rm        -e DISPLAY=$DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk       -v /tmp/.X11-unix:/tmp/.X11-unix        dockerkj python3 jenkinsCreateJobs.py
+5. https://github.com/RakiP/Testcases.git
+6. docker run -ti --rm -e DISPLAY=$DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRuncommand.py
 
-if any error occurs with paths, execute sudo make down
-
-
-Additional info
-run .robot files
-- go cd into top project directory (e.g. DSH)
-- run : source venv/bin/activate
-- cd into folder where tests are located
-- run : pybot test.robot
-
-https://docs.docker.com/get-started/part2/#define-a-container-with-a-dockerfile
-docker:
-
-Note: robotframework-mqttlibrary has no python 3 support therefore we use python 2.7
+docker run -v /py/mountedDisk/Testcases:/robot/Testcases -v /py/mountedDisk/Testresults:/robot/Testresults -w /robot --net=host rpartapsing/dsh:part1 /bin/bash -c ./runscript.sh

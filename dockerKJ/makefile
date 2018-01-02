@@ -1,23 +1,20 @@
 build:
-	@docker build -t dockerrfpy27 --network=host .
+	@docker build -t dockerkj --network=host .
 
 run:
-	@docker-compose up -d
+	@docker run -d -e DISPLAY=$DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 stop:
-	@docker stop dockerrfpy27
+	@docker stop dockerkj
 
-down:
-	@docker-compose down
+runkafka:
+	@docker run --rm -d -p 2181:2181 -p 3030:3030 -p 8081:8081 -p 8082:8082 -p 8083:8083 -p 9092:9092 --net=host -e ADV_HOST=172.22.0.1 --name dkafka landoop/fast-data-dev
 
 stopkafka:
-	@docker stop dkafka && docker rm dkafka
+	@docker stop dkafka
 
-listen: 
-	@cd py && python3 kafkaConsumeRunCommand.py &
+listen:
+	@docker run -ti --rm -d -e DISPLAY=$DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
 
-jenkins:
-
-	@cd py && python3 jenkinsCreateJobs.py &
 
 

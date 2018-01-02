@@ -6,7 +6,7 @@ from time import sleep
 
 ###############################
 def pushit():
-    global j, dMountedDisk, topic
+    global j, dMountedDiskHost, dMountedDiskClient, topic
     lb1.delete(0, 'end')
     lb1.insert(0, 'All')
 
@@ -15,7 +15,7 @@ def pushit():
     
     xmlPushMDisk = open(templatePushMDisk, 'r').read()  
     xmlPushMDisk = xmlPushMDisk.replace('GITURL', str(gitName.get())).replace('PASSWORD', str(pw.get())) \
-                                .replace('USERNAME',str(uName.get())).replace('LOCATIONMOUNTEDDISK',str(dMountedDisk))
+                                .replace('USERNAME',str(uName.get())).replace('LOCATIONMOUNTEDDISK',str(dMountedDiskHost))
     try:
         j.create_job(job1, xmlPushMDisk)
     except:
@@ -39,21 +39,21 @@ def pushit():
         else:
             break
     
-    for test in os.listdir(os.path.join(dMountedDisk, 'Testcases')):
+    for test in os.listdir(os.path.join(dMountedDiskClient, 'Testcases')):
         lb1.insert(0, test)
     
     if var1.get()==1:
         print("A new job called {0}-AllTrigger will be made which will be automatically triggerd after execution of {1}".format(topic, job1))
 
 def runit():
-    global j, dMountedDisk, topic
+    global j, dMountedDiskHost, topic
     
     #Push from git url to mounted disk
     job2 = '{}-{}'.format(topic, lb1.get('active')) 
     
     xmlRun = open(templateExecKafkaRunCommand, 'r').read()  
     xmlRun = xmlRun.replace('TRIGGER', str(lb2.get('active'))).replace('PASSWORD', str(pw.get())) \
-                                .replace('USERNAME',str(uName.get())).replace('PATHTOkafkaProduceRunCommand',str(fKafkaRunCommand)) \
+                                .replace('USERNAME',str(uName.get())).replace('PATHTOMOUNTEDDISK',dMountedDiskHost) \
                                 .replace('TOPIC', topic).replace('RUNCOMMAND', lb1.get('active'))
     try:
         j.create_job(job2, xmlRun)
@@ -63,7 +63,7 @@ def runit():
 
 #################OPEN JENKINS########################
 
-j = jenkins.Jenkins('http://localhost:8084', 'admin', 'rak24283')
+j = jenkins.Jenkins('http://172.22.0.1:8084', 'reindrich', 'reindrich')
 
 #################USER PROMT####################
 def quiting():
@@ -80,7 +80,7 @@ frame1 = Frame(root, bg='#ffffdd')
 #lblImg = Label(root, image=logo)
 #lblImg.pack(side=TOP,padx=10,pady=10)
 
-lbl1 = Label(root, text='Hello {}, complete the following prompts'.format(topic))
+lbl1 = Label(root, text='Hello there, complete the following prompts')
 lbl1.pack(side=TOP,padx=10,pady=10)
 
 lbl2 = Label(root, text='UserName')

@@ -1,24 +1,29 @@
-FROM openjdk:8u121-jdk-alpine
+FROM ubuntu:16.04
 MAINTAINER "rpartapsing" <r.partapsing@gmail.com>
 LABEL name="Docker image for Tenant with Jenkins"
 
 ARG ssh_port=22
 
-RUN apk add --no-cache git openssh-client curl unzip bash nano ttf-dejavu coreutils
-RUN apk add --no-cache python3 && \
-    python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
-    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
-    rm -r /root/.cache
+RUN apt-get update && apt-get install -y \
+    libssl-dev \
+    libffi-dev \
+    python3 \
+    python3-dev \
+    python3-pip \
+    python3-tk \
+    libltdl7 \
+    libxslt1-dev \
+    git \
+&& apt-get clean
 
 ADD requirements /py/requirements
 ADD py /py
+ADD templates /py/templates
 
 WORKDIR /py
 
 EXPOSE ${ssh_port}
 
-RUN pip install -r /robot/requirements/requirements.txt
+RUN pip3 install -r /py/requirements/requirements.txt
+
 RUN echo "done"
