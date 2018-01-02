@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26b578a9-32f6-46e4-9ab5-038f30634f19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dockerKJ/Dockerfile-alpine" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dockerKJ/Dockerfile-firefox" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/Dockerfile" afterPath="$PROJECT_DIR$/dockerKJ/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/README.md" afterPath="$PROJECT_DIR$/dockerKJ/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/makefile" afterPath="$PROJECT_DIR$/dockerKJ/makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/py/TenantRestConfig.py" afterPath="$PROJECT_DIR$/dockerKJ/py/TenantRestConfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/py/jenkinsCreateJobs.py" afterPath="$PROJECT_DIR$/dockerKJ/py/jenkinsCreateJobs.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/py/kafkaConsumeRunCommand.py" afterPath="$PROJECT_DIR$/dockerKJ/py/kafkaConsumeRunCommand.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dockerKJ/requirements/requirements.txt" afterPath="$PROJECT_DIR$/dockerKJ/requirements/requirements.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/dockerRF/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="44" />
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -75,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/dockerKJ/py/kafkaConsumeRunCommand.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="705">
-              <caret line="47" column="55" lean-forward="false" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+              <caret line="47" column="110" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="47" selection-end-column="110" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -83,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="makefile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dockerKJ/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dockerKJ/requirements/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+            <state relative-caret-position="45">
+              <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -154,7 +145,6 @@
         <option value="$PROJECT_DIR$/dockerRF/docker-compose.yml" />
         <option value="$PROJECT_DIR$/dockerRF/makefile" />
         <option value="$PROJECT_DIR$/dockerRF/Testcases/kafka/kafka.robot" />
-        <option value="$PROJECT_DIR$/dockerKJ/requirements/requirements.txt" />
         <option value="$PROJECT_DIR$/dockerKJ/Dockerfile-ubtunu" />
         <option value="$PROJECT_DIR$/dockerKJ/py/TenantRestConfig.py" />
         <option value="$PROJECT_DIR$/dockerKJ/py/jenkinsCreateJobs.py" />
@@ -163,6 +153,7 @@
         <option value="$PROJECT_DIR$/dockerKJ/README.md" />
         <option value="$PROJECT_DIR$/dockerKJ/py/kafkaConsumeRunCommand.py" />
         <option value="$PROJECT_DIR$/dockerKJ/makefile" />
+        <option value="$PROJECT_DIR$/dockerKJ/requirements/requirements.txt" />
       </list>
     </option>
   </component>
@@ -484,12 +475,19 @@
       <option name="project" value="LOCAL" />
       <updated>1514819530137</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added in req.txt">
+      <created>1514855689757</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1514855689757</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="961" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25272927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -520,7 +518,8 @@
     <MESSAGE value="added stopkafka in makefile" />
     <MESSAGE value="when error for paths, added docker-compose down" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="added in req.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="added in req.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -641,7 +640,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -672,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dockerKJ/requirements/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dockerKJ/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -691,7 +682,7 @@
     <entry file="file://$PROJECT_DIR$/dockerRF/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="44" />
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -727,20 +718,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dockerKJ/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dockerKJ/py/kafkaConsumeRunCommand.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
-          <caret line="47" column="55" lean-forward="false" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+          <caret line="47" column="110" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="47" selection-end-column="110" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dockerKJ/makefile">
+    <entry file="file://$PROJECT_DIR$/dockerKJ/requirements/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="45">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           <folding />
         </state>
       </provider>

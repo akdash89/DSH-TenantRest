@@ -2,7 +2,7 @@ build:
 	@docker build -t dockerkj --network=host .
 
 run:
-	@docker run -d -e DISPLAY=$DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+	@xhost + && docker run -d -e DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 stop:
 	@docker stop dockerkj
@@ -14,7 +14,7 @@ stopkafka:
 	@docker stop dkafka
 
 listen:
-	@docker run -ti --rm -d -e DISPLAY=$DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
+	@docker run -ti --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
 
 
 
