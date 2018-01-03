@@ -17,7 +17,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sshpass -p PASSWORD ssh -oStrictHostKeyChecking=no USERNAME@172.22.0.1 docker run --rm -e DISPLAY=$DISPLAY  -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaProduceRunCommand.py -r TOPIC/RUNCOMMAND </command>
+      <command>sshpass -p PASSWORD ssh -oStrictHostKeyChecking=no USERNAME@IPADDRESS docker run --rm -e DISPLAY=$DISPLAY  -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaProduceRunCommand.py -r TOPIC/RUNCOMMAND </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -7,7 +7,7 @@ from TenantRestConfig import *
 def main():
 
     # To consume latest messages and auto-commit offsets
-    consumer = KafkaConsumer(topic, group_id='run-group', bootstrap_servers=[kafkaServer])
+    consumer = KafkaConsumer(topic, group_id='run-group', bootstrap_servers=[ipAddress+':9092'])
     for message in consumer:
         # message value and key are raw bytes -- decode if necessary!
         # e.g., for unicode: `message.value.decode('utf-8')`
@@ -36,7 +36,7 @@ def main():
 
             print('Put json on kafka')
             jData = json.load(open(fJSON))
-            producer = KafkaProducer(bootstrap_servers=[kafkaServer], value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+            producer = KafkaProducer(bootstrap_servers=[ipAddress+':9092'], value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
             producer.send(topic, key=b'Testresults', value=jData)
 
@@ -45,7 +45,7 @@ def main():
             #subprocess.run(['/bin/bash', '-c', 'rm -f /home/rakeshlaptop/Documents/dockerRF/mountedDisk/Testresults/*.html'])
 
         # consume earliest available messages, don't commit offsets
-        KafkaConsumer(bootstrap_servers=[kafkaServer], auto_offset_reset='earliest', enable_auto_commit=False)
+        KafkaConsumer(bootstrap_servers=[ipAddress+':9092'], auto_offset_reset='earliest', enable_auto_commit=False)
 
  
 if __name__ == "__main__":

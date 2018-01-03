@@ -15,7 +15,8 @@ def pushit():
     
     xmlPushMDisk = open(templatePushMDisk, 'r').read()  
     xmlPushMDisk = xmlPushMDisk.replace('GITURL', str(gitName.get())).replace('PASSWORD', str(pw.get())) \
-                                .replace('USERNAME',str(uName.get())).replace('LOCATIONMOUNTEDDISK',str(dMountedDiskHost))
+                                .replace('USERNAME',str(uName.get())).replace('LOCATIONMOUNTEDDISK',str(dMountedDiskHost)) \
+                                .replace('IPADDRESS', str(ipAddress))
     try:
         j.create_job(job1, xmlPushMDisk)
     except:
@@ -63,7 +64,7 @@ def runit():
 
 #################OPEN JENKINS########################
 
-j = jenkins.Jenkins('http://172.22.0.1:8084', 'reindrich', 'reindrich')
+j = jenkins.Jenkins('http://{}:8084', 'reindrich', 'reindrich'.format(ipAddress))
 
 #################USER PROMT####################
 def quiting():

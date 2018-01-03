@@ -33,7 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>rsync -avz -e &quot;sshpass -p PASSWORD ssh -o StrictHostKeyChecking=no&quot; . USERNAME@172.22.0.1:LOCATIONMOUNTEDDISK</command>
+      <command>rsync -avz -e &quot;sshpass -p PASSWORD ssh -o StrictHostKeyChecking=no&quot; . USERNAME@IPADDRESS:LOCATIONMOUNTEDDISK</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -10,6 +10,6 @@ templatePushMDisk =  os.path.join(absFilePath,'templates','push-mountedDisk.xml'
 templateExecKafkaRunCommand = os.path.join(absFilePath,'templates','executeProduceRunCommand.xml')
 
 ####TENANT SPECIFIC#########
-kafkaServer = '172.22.0.1:9092'
+ipAddress = '172.22.0.1'
 topic = 'vialis'
 dMountedDiskHost = r'/home/rakeshlaptop/Documents/projects/DSH/mountedDisk'
