@@ -28,7 +28,7 @@ def main():
         topic = args.run.split('/')[0]
         msg = bytes('RUN ' + str(args.run.split('/')[1]), 'utf8')
         
-        kafka = KafkaClient(ipAddress+':9092')
+        kafka = KafkaClient(':'.join([ipAddress, str(portKafka)]))
         producer = SimpleProducer(kafka)
         
         kafka.ensure_topic_exists(topic)

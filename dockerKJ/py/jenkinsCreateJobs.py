@@ -55,7 +55,8 @@ def runit():
     xmlRun = open(templateExecKafkaRunCommand, 'r').read()  
     xmlRun = xmlRun.replace('TRIGGER', str(lb2.get('active'))).replace('PASSWORD', str(pw.get())) \
                                 .replace('USERNAME',str(uName.get())).replace('PATHTOMOUNTEDDISK',dMountedDiskHost) \
-                                .replace('TOPIC', topic).replace('RUNCOMMAND', lb1.get('active'))
+                                .replace('TOPIC', topic).replace('RUNCOMMAND', lb1.get('active')) \
+                                .replace('IPADDRESS', str(ipAddress))
     try:
         j.create_job(job2, xmlRun)
     except:
@@ -64,7 +65,7 @@ def runit():
 
 #################OPEN JENKINS########################
 
-j = jenkins.Jenkins('http://{}:8084', 'reindrich', 'reindrich'.format(ipAddress))
+j = jenkins.Jenkins('http://172.22.0.1:8084', 'reindrich', 'reindrich')
 
 #################USER PROMT####################
 def quiting():

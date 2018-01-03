@@ -4,6 +4,9 @@ build:
 run:
 	@xhost + && docker run -d -e DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
+runnod:
+	@xhost + && docker run -e DISPLAY  -v /home/rakeshlaptop/Documents/projects/DSH/mountedDisk:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+
 stop:
 	@docker stop dockerkj
 

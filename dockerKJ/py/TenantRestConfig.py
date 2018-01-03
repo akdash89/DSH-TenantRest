@@ -9,7 +9,10 @@ fKafkaRunCommand = os.path.join(absFilePath,'kafkaProduceRunCommand.py')
 templatePushMDisk =  os.path.join(absFilePath,'templates','push-mountedDisk.xml')
 templateExecKafkaRunCommand = os.path.join(absFilePath,'templates','executeProduceRunCommand.xml')
 
+portJenkins = 8084
+portKafka = 9092
+
 ####TENANT SPECIFIC#########
-ipAddress = '172.22.0.1'
+ipAddress = {print $IP}
 topic = 'vialis'
 dMountedDiskHost = r'/home/rakeshlaptop/Documents/projects/DSH/mountedDisk'
