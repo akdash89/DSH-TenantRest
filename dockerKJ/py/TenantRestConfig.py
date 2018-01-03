@@ -13,6 +13,6 @@ portJenkins = 8084
 portKafka = 9092
 
 ####TENANT SPECIFIC#########
-ipAddress = addr:172.20.0.1
+ipAddress = '172.20.0.1'
 topic = 'vialis'
-dMountedDiskHost = dMDisk
+dMountedDiskHost = r"/home/rakeshlaptop/Documents/projects/DSH/mountedDisk"
