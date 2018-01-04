@@ -65,7 +65,7 @@ def runit():
 
 #################OPEN JENKINS########################
 
-j = jenkins.Jenkins('{}'.format(':'.join([ipAddressJenkins, str(portJenkins)])), 'reindrich', 'reindrich')
+j = jenkins.Jenkins('http://'+'{}'.format(':'.join([ipAddressJenkins, str(portJenkins)])), 'reindrich', 'reindrich')
 
 #################USER PROMT####################
 def quiting():

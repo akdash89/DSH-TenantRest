@@ -8,6 +8,7 @@ topic='vialis'
 #CODE
 if [ ! -d "$mountedDisk" ]; then
   mkdir $mountedDisk
+  chmod 777 $mountedDisk
 fi
 
 sed -i -e "s/IPADDRESS/$IP/g" "py/TenantRestConfig.py"
