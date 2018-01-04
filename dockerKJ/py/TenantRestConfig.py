@@ -15,5 +15,5 @@ portKafka = 9092
 ####TENANT SPECIFIC#########
 ipAddress = 'IPADDRESS'
 ipAddressJenkins = ipAddress
-topic = 'vialis'
+topic = 'TOPIC'
 dMountedDiskHost = r"PATHTOMOUNTEDDISK"
