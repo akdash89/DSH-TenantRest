@@ -15,4 +15,4 @@ portKafka = 9092
 ####TENANT SPECIFIC#########
 ipAddress = '172.20.0.1'
 topic = 'vialis'
-dMountedDiskHost = r"/home/rakeshlaptop/Documents/projects/DSH/mountedDisk"
+dMountedDiskHost = r"/home/rakip/Documents/projects/DSHTesting/mountedDisk"
