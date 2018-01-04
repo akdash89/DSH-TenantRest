@@ -2,10 +2,10 @@ build:
 	@docker build -t dockerkj --network=host .
 
 run:
-	@xhost + && docker run -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+	@xhost + && docker run --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 runnod:
-	@xhost + && docker run -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+	@xhost + && docker run --rm -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 stop:
 	@docker stop dockerkj

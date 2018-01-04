@@ -21,11 +21,11 @@ def main():
             tCases = os.path.join(dMountedDiskHost, 'Testcases')
 
             if runCommand == 'All':
-                subprocess.run(['/bin/bash', '-c', 'docker run -v {0}:/robot/Testcases -v {1}:/robot/Testresults -w /robot --net=host rpartapsing/dsh:part1 /bin/bash -c ./runscript.sh '.format(tCases, tResults)])
+                subprocess.run(['/bin/bash', '-c', 'docker run --rm -v {0}:/robot/Testcases -v {1}:/robot/Testresults -w /robot --net=host rpartapsing/dsh:part1 /bin/bash -c ./runscript.sh '.format(tCases, tResults)])
             else:
                 print('else')
                 tCasesChosen = os.path.join(tCases, runCommand)
-                subprocess.run(['/bin/bash', '-c', 'docker run -v {0}:/robot/Testcases -v {1}:/robot/Testresults -w /robot --net=host rpartapsing/dsh:part1 /bin/bash -c ./runscript.sh '.format(tCasesChosen, tResults)])
+                subprocess.run(['/bin/bash', '-c', 'docker run --rm -v {0}:/robot/Testcases -v {1}:/robot/Testresults -w /robot --net=host rpartapsing/dsh:part1 /bin/bash -c ./runscript.sh '.format(tCasesChosen, tResults)])
 
             print('Convert xml to json')
             tResultsClient = os.path.join(dMountedDiskClient, 'Testresults', runCommand)

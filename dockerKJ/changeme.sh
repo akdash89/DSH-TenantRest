@@ -7,7 +7,7 @@ if [ ! -d "$mountedDisk" ]; then
   mkdir $mountedDisk
 fi
 
-#sed -i -e "s/IPADDRESS/$IP/g" "py/TenantRestConfig.py"
-#sed -i -e "s#PATHTOMOUNTEDDISK#$mountedDisk#g" "py/TenantRestConfig.py"
-#sed -i -e "s/IPADDRESS/$IP/g" "makefile"
-#sed -i -e "s#PATHTOMOUNTEDDISK#$mountedDisk#g" "makefile"
+sed -i -e "s/IPADDRESS/$IP/g" "py/TenantRestConfig.py"
+sed -i -e "s#PATHTOMOUNTEDDISK#$mountedDisk#g" "py/TenantRestConfig.py"
+sed -i -e "s/IPADDRESS/$IP/g" "makefile"
+sed -i -e "s#PATHTOMOUNTEDDISK#$mountedDisk#g" "makefile"
