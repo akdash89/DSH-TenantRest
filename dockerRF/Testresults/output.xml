@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20171229 18:48:15.571" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<robot generated="20180104 13:57:31.410" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
 <suite source="/robot/Testcases" id="s1" name="Testcases">
 <suite source="/robot/Testcases/kafka" id="s1-s1" name="Kafka">
 <suite source="/robot/Testcases/kafka/kafka.robot" id="s1-s1-s1" name="Kafka">
@@ -8,159 +8,45 @@
 <arguments>
 <arg>172.22.0.1:9092</arg>
 </arguments>
-<msg timestamp="20171229 18:48:15.647" level="INFO">Bootstrapping cluster metadata from [(u'172.22.0.1', 9092, 2)]</msg>
-<msg timestamp="20171229 18:48:15.648" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:15.652" level="INFO">Bootstrap succeeded: found 1 brokers and 15 topics.</msg>
-<msg timestamp="20171229 18:48:15.652" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. </msg>
-<msg timestamp="20171229 18:48:15.653" level="INFO">&lt;BrokerConnection node_id=0 host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:15.765" level="INFO">Broker version identifed as 0.11.0</msg>
-<msg timestamp="20171229 18:48:15.766" level="INFO">Set configuration api_version=(0, 11, 0) to skip auto check_version requests on startup</msg>
-<msg timestamp="20171229 18:48:15.769" level="WARN">group_id is None: disabling auto-commit.</msg>
-<msg timestamp="20171229 18:48:15.771" level="INFO">Bootstrapping cluster metadata from [(u'172.22.0.1', 9092, 2)]</msg>
-<msg timestamp="20171229 18:48:15.776" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:15.784" level="INFO">Bootstrap succeeded: found 1 brokers and 15 topics.</msg>
-<msg timestamp="20171229 18:48:15.785" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. </msg>
-<msg timestamp="20171229 18:48:15.788" level="INFO">&lt;BrokerConnection node_id=0 host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:15.900" level="INFO">Broker version identifed as 0.11.0</msg>
-<msg timestamp="20171229 18:48:15.901" level="INFO">Set configuration api_version=(0, 11, 0) to skip auto check_version requests on startup</msg>
-<status status="PASS" endtime="20171229 18:48:15.907" starttime="20171229 18:48:15.645"></status>
+<msg timestamp="20180104 13:57:31.464" level="INFO">Bootstrapping cluster metadata from [(u'172.22.0.1', 9092, 2)]</msg>
+<msg timestamp="20180104 13:57:31.464" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
+<msg timestamp="20180104 13:57:31.465" level="ERROR">Connect attempt to &lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt; returned error 111. Disconnecting.</msg>
+<msg timestamp="20180104 13:57:31.466" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. ConnectionError: 111</msg>
+<msg timestamp="20180104 13:57:31.466" level="ERROR">Unable to bootstrap from [(u'172.22.0.1', 9092, 2)]</msg>
+<msg timestamp="20180104 13:57:31.466" level="FAIL">NoBrokersAvailable: NoBrokersAvailable</msg>
+<status status="FAIL" endtime="20180104 13:57:31.467" starttime="20180104 13:57:31.462"></status>
 </kw>
 <test id="s1-s1-s1-t1" name="Connect to topics">
-<kw name="Connect Producer" library="KafkaLibrary">
-<doc>A Kafka client that publishes records to the Kafka cluster.</doc>
-<arguments>
-<arg>172.22.0.1:9092</arg>
-</arguments>
-<msg timestamp="20171229 18:48:15.913" level="INFO">Bootstrapping cluster metadata from [(u'172.22.0.1', 9092, 2)]</msg>
-<msg timestamp="20171229 18:48:15.917" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:15.923" level="INFO">Bootstrap succeeded: found 1 brokers and 15 topics.</msg>
-<msg timestamp="20171229 18:48:15.924" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. </msg>
-<msg timestamp="20171229 18:48:15.925" level="INFO">&lt;BrokerConnection node_id=0 host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:16.031" level="INFO">Broker version identifed as 0.11.0</msg>
-<msg timestamp="20171229 18:48:16.031" level="INFO">Set configuration api_version=(0, 11, 0) to skip auto check_version requests on startup</msg>
-<msg timestamp="20171229 18:48:16.035" level="INFO">Closing the Kafka producer with 0 secs timeout.</msg>
-<msg timestamp="20171229 18:48:16.036" level="INFO">Proceeding to force close the producer since pending requests could not be completed within timeout 0.</msg>
-<status status="PASS" endtime="20171229 18:48:16.037" starttime="20171229 18:48:15.910"></status>
-</kw>
-<kw name="Connect Consumer" library="KafkaLibrary">
-<doc>Connect kafka consumer.</doc>
-<arguments>
-<arg>172.22.0.1:9092</arg>
-<arg>group_id=mygroup</arg>
-</arguments>
-<msg timestamp="20171229 18:48:16.039" level="INFO">Bootstrapping cluster metadata from [(u'172.22.0.1', 9092, 2)]</msg>
-<msg timestamp="20171229 18:48:16.040" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:16.045" level="INFO">Bootstrap succeeded: found 1 brokers and 15 topics.</msg>
-<msg timestamp="20171229 18:48:16.046" level="INFO">&lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. </msg>
-<msg timestamp="20171229 18:48:16.047" level="INFO">&lt;BrokerConnection node_id=0 host=172.22.0.1/172.22.0.1 port=9092&gt;: connecting to 172.22.0.1:9092</msg>
-<msg timestamp="20171229 18:48:16.156" level="INFO">Broker version identifed as 0.11.0</msg>
-<msg timestamp="20171229 18:48:16.157" level="INFO">Set configuration api_version=(0, 11, 0) to skip auto check_version requests on startup</msg>
-<status status="PASS" endtime="20171229 18:48:16.160" starttime="20171229 18:48:16.037"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:16.161" critical="yes" starttime="20171229 18:48:15.908"></status>
+<status status="FAIL" endtime="20180104 13:57:31.467" critical="yes" starttime="20180104 13:57:31.467">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
 </test>
 <test id="s1-s1-s1-t2" name="Create topic partition">
-<kw name="Create Topicpartition" library="KafkaLibrary">
-<doc>Create TopicPartition object</doc>
-<arguments>
-<arg>${topic}</arg>
-<arg>partition=${partition}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:16.166" starttime="20171229 18:48:16.164"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:16.167" critical="yes" starttime="20171229 18:48:16.162"></status>
+<status status="FAIL" endtime="20180104 13:57:31.468" critical="yes" starttime="20180104 13:57:31.467">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
 </test>
 <test id="s1-s1-s1-t3" name="Send message">
-<kw name="Encode String To Bytes" library="String">
-<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
-<arguments>
-<arg>${Message1}</arg>
-<arg>UTF-8</arg>
-</arguments>
-<assign>
-<var>${bytes1}</var>
-</assign>
-<msg timestamp="20171229 18:48:16.170" level="INFO">${bytes1} = Kafka is working</msg>
-<status status="PASS" endtime="20171229 18:48:16.170" starttime="20171229 18:48:16.169"></status>
-</kw>
-<kw name="Encode String To Bytes" library="String">
-<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
-<arguments>
-<arg>${Message2}</arg>
-<arg>UTF-8</arg>
-</arguments>
-<assign>
-<var>${bytes2}</var>
-</assign>
-<msg timestamp="20171229 18:48:16.172" level="INFO">${bytes2} = ...for real!</msg>
-<status status="PASS" endtime="20171229 18:48:16.172" starttime="20171229 18:48:16.171"></status>
-</kw>
-<kw name="Send" library="KafkaLibrary">
-<doc>Publish a message to a topic.</doc>
-<arguments>
-<arg>topic=${topic}</arg>
-<arg>value=${bytes1}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:16.182" starttime="20171229 18:48:16.172"></status>
-</kw>
-<kw name="Send" library="KafkaLibrary">
-<doc>Publish a message to a topic.</doc>
-<arguments>
-<arg>topic=${topic}</arg>
-<arg>value=${bytes2}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:16.185" starttime="20171229 18:48:16.182"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:16.185" critical="yes" starttime="20171229 18:48:16.167"></status>
+<status status="FAIL" endtime="20180104 13:57:31.468" critical="yes" starttime="20180104 13:57:31.468">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
 </test>
 <test id="s1-s1-s1-t4" name="Get kafka topics">
-<kw name="Get Kafka Topics" library="KafkaLibrary">
-<doc>Return list of kafka topics.</doc>
-<assign>
-<var>${list_topics}</var>
-</assign>
-<msg timestamp="20171229 18:48:16.189" level="INFO">${list_topics} = [u'connect-offsets', u'coyote_test_json', u'_schemas', u'backblaze_smart', u'first_topic', u'coyote_test_binary', u'smashing', u'logs_broker', u'sea_vessel_position_reports', u'nyc_yellow_taxi_trip_da...</msg>
-<status status="PASS" endtime="20171229 18:48:16.189" starttime="20171229 18:48:16.186"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${list_topics}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:16.190" starttime="20171229 18:48:16.189"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:16.191" critical="yes" starttime="20171229 18:48:16.186"></status>
+<status status="FAIL" endtime="20180104 13:57:31.468" critical="yes" starttime="20180104 13:57:31.468">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
 </test>
 <test id="s1-s1-s1-t5" name="Get messages in topic">
-<kw name="Get Number Of Messages In Topics" library="KafkaLibrary">
-<doc>Retrun number of messages in topics.</doc>
-<arguments>
-<arg>${topic}</arg>
-</arguments>
-<assign>
-<var>${nr_messages}</var>
-</assign>
-<msg timestamp="20171229 18:48:16.193" level="INFO">Group coordinator for mygroup is BrokerMetadata(nodeId=0, host=u'172.22.0.1', port=9092, rack=None)</msg>
-<msg timestamp="20171229 18:48:16.193" level="INFO">Discovered coordinator 0 for group mygroup</msg>
-<msg timestamp="20171229 18:48:16.196" level="INFO">${nr_messages} = 4</msg>
-<status status="PASS" endtime="20171229 18:48:16.196" starttime="20171229 18:48:16.191"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${nr_messages}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:16.196" starttime="20171229 18:48:16.196"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:16.196" critical="yes" starttime="20171229 18:48:16.191"></status>
+<status status="FAIL" endtime="20180104 13:57:31.469" critical="yes" starttime="20180104 13:57:31.469">Parent suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable</status>
 </test>
 <kw type="teardown" name="Close" library="KafkaLibrary">
-<msg timestamp="20171229 18:48:16.197" level="INFO">&lt;BrokerConnection node_id=0 host=172.22.0.1/172.22.0.1 port=9092&gt;: Closing connection. </msg>
-<status status="PASS" endtime="20171229 18:48:16.198" starttime="20171229 18:48:16.197"></status>
+<msg timestamp="20180104 13:57:31.469" level="FAIL">AttributeError: 'NoneType' object has no attribute 'close'</msg>
+<status status="FAIL" endtime="20180104 13:57:31.470" starttime="20180104 13:57:31.469">AttributeError: 'NoneType' object has no attribute 'close'</status>
 </kw>
-<status status="PASS" endtime="20171229 18:48:16.198" starttime="20171229 18:48:15.597"></status>
+<status status="FAIL" endtime="20180104 13:57:31.470" starttime="20180104 13:57:31.427">Suite setup failed:
+NoBrokersAvailable: NoBrokersAvailable
+
+Also suite teardown failed:
+AttributeError: 'NoneType' object has no attribute 'close'</status>
 </suite>
-<status status="PASS" endtime="20171229 18:48:16.199" starttime="20171229 18:48:15.595"></status>
+<status status="FAIL" endtime="20180104 13:57:31.470" starttime="20180104 13:57:31.426"></status>
 </suite>
 <suite source="/robot/Testcases/mqtt" id="s1-s2" name="Mqtt">
 <suite source="/robot/Testcases/mqtt/mqtt.robot" id="s1-s2-s1" name="Mqtt">
@@ -180,7 +66,7 @@
 <arg>fpvryavs</arg>
 <arg>Noq7_zN69dMe</arg>
 </arguments>
-<status status="PASS" endtime="20171229 18:48:16.219" starttime="20171229 18:48:16.218"></status>
+<status status="PASS" endtime="20180104 13:57:31.483" starttime="20180104 13:57:31.483"></status>
 </kw>
 <kw name="Connect" library="MQTTLibrary">
 <doc>Connect to an MQTT broker. This is a pre-requisite step for publish</doc>
@@ -188,74 +74,48 @@
 <arg>m12.cloudmqtt.com</arg>
 <arg>port=15805</arg>
 </arguments>
-<msg timestamp="20171229 18:48:16.219" level="INFO">Connecting to m12.cloudmqtt.com at port 15805</msg>
-<status status="PASS" endtime="20171229 18:48:17.508" starttime="20171229 18:48:16.219"></status>
+<msg timestamp="20180104 13:57:31.483" level="INFO">Connecting to m12.cloudmqtt.com at port 15805</msg>
+<msg timestamp="20180104 13:59:38.878" level="FAIL">error: [Errno 110] Connection timed out</msg>
+<status status="FAIL" endtime="20180104 13:59:38.879" starttime="20180104 13:57:31.483"></status>
 </kw>
-<status status="PASS" endtime="20171229 18:48:17.508" starttime="20171229 18:48:16.218"></status>
+<status status="FAIL" endtime="20180104 13:59:38.879" starttime="20180104 13:57:31.482"></status>
 </kw>
 <test id="s1-s2-s1-t1" name="Publish">
-<kw name="Publish" library="MQTTLibrary">
-<doc>Publish a message to a topic with specified qos and retained flag.</doc>
-<arguments>
-<arg>topic=${topic}</arg>
-<arg>message=${Message}</arg>
-</arguments>
-<msg timestamp="20171229 18:48:17.513" level="INFO">Publish topic: python/test, message: test message, qos: 0, retain: False</msg>
-<status status="PASS" endtime="20171229 18:48:17.514" starttime="20171229 18:48:17.512"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:17.515" critical="yes" starttime="20171229 18:48:17.508"></status>
+<status status="FAIL" endtime="20180104 13:59:38.881" critical="yes" starttime="20180104 13:59:38.879">Parent suite setup failed:
+error: [Errno 110] Connection timed out</status>
 </test>
 <test id="s1-s2-s1-t2" name="subscribe">
-<kw name="Subscribe" library="MQTTLibrary">
-<doc>Subscribe to a topic and return a list of message payloads received</doc>
-<arguments>
-<arg>topic=${topic}</arg>
-<arg>qos=1</arg>
-<arg>timeout=15</arg>
-<arg>limit=0</arg>
-</arguments>
-<assign>
-<var>${Topic_Message}</var>
-</assign>
-<msg timestamp="20171229 18:48:17.520" level="INFO">Subscribing to topic: python/test</msg>
-<msg timestamp="20171229 18:48:32.755" level="INFO">${Topic_Message} = []</msg>
-<status status="PASS" endtime="20171229 18:48:32.755" starttime="20171229 18:48:17.518"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${Topic_Message}</arg>
-</arguments>
-<status status="PASS" endtime="20171229 18:48:32.757" starttime="20171229 18:48:32.756"></status>
-</kw>
-<status status="PASS" endtime="20171229 18:48:32.758" critical="yes" starttime="20171229 18:48:17.516"></status>
+<status status="FAIL" endtime="20180104 13:59:38.882" critical="yes" starttime="20180104 13:59:38.881">Parent suite setup failed:
+error: [Errno 110] Connection timed out</status>
 </test>
 <kw type="teardown" name="Disconnect" library="MQTTLibrary">
 <doc>Disconnect from MQTT Broker.</doc>
-<status status="PASS" endtime="20171229 18:48:32.762" starttime="20171229 18:48:32.760"></status>
+<status status="PASS" endtime="20180104 13:59:43.884" starttime="20180104 13:59:38.884"></status>
 </kw>
-<status status="PASS" endtime="20171229 18:48:32.762" starttime="20171229 18:48:16.202"></status>
+<status status="FAIL" endtime="20180104 13:59:43.884" starttime="20180104 13:57:31.472">Suite setup failed:
+error: [Errno 110] Connection timed out</status>
 </suite>
-<status status="PASS" endtime="20171229 18:48:32.767" starttime="20171229 18:48:16.200"></status>
+<status status="FAIL" endtime="20180104 13:59:43.885" starttime="20180104 13:57:31.471"></status>
 </suite>
-<status status="PASS" endtime="20171229 18:48:32.772" starttime="20171229 18:48:15.572"></status>
+<status status="FAIL" endtime="20180104 13:59:43.885" starttime="20180104 13:57:31.412"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="7">Critical Tests</stat>
-<stat fail="0" pass="7">All Tests</stat>
+<stat fail="7" pass="0">Critical Tests</stat>
+<stat fail="7" pass="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Testcases" pass="7">Testcases</stat>
-<stat fail="0" id="s1-s1" name="Kafka" pass="5">Testcases.Kafka</stat>
-<stat fail="0" id="s1-s1-s1" name="Kafka" pass="5">Testcases.Kafka.Kafka</stat>
-<stat fail="0" id="s1-s2" name="Mqtt" pass="2">Testcases.Mqtt</stat>
-<stat fail="0" id="s1-s2-s1" name="Mqtt" pass="2">Testcases.Mqtt.Mqtt</stat>
+<stat fail="7" id="s1" name="Testcases" pass="0">Testcases</stat>
+<stat fail="5" id="s1-s1" name="Kafka" pass="0">Testcases.Kafka</stat>
+<stat fail="5" id="s1-s1-s1" name="Kafka" pass="0">Testcases.Kafka.Kafka</stat>
+<stat fail="2" id="s1-s2" name="Mqtt" pass="0">Testcases.Mqtt</stat>
+<stat fail="2" id="s1-s2-s1" name="Mqtt" pass="0">Testcases.Mqtt.Mqtt</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20171229 18:48:15.769" level="WARN">group_id is None: disabling auto-commit.</msg>
+<msg timestamp="20180104 13:57:31.465" level="ERROR">Connect attempt to &lt;BrokerConnection node_id=bootstrap host=172.22.0.1/172.22.0.1 port=9092&gt; returned error 111. Disconnecting.</msg>
+<msg timestamp="20180104 13:57:31.466" level="ERROR">Unable to bootstrap from [(u'172.22.0.1', 9092, 2)]</msg>
 </errors>
 </robot>
