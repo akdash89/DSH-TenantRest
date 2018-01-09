@@ -2,10 +2,10 @@ build:
 	@docker build -t dockerkj --network=host .
 
 run:
-	@xhost + && docker run --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+	@xhost + && docker run --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 runnod:
-	@xhost + && docker run --rm -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
+	@xhost + && docker run --rm -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 jenkinsCreateJobs.py
 
 stop:
 	@docker stop dockerkj
@@ -25,10 +25,10 @@ chown:
 	@sudo chmod 777 /var/run/docker.sock
 
 listennod:
-	@docker run -ti --rm -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
+	@docker run -ti --rm -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
 
 listen:
-	@docker run -ti --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
+	@docker run -ti --rm -d -e DISPLAY -v /var/run/docker.sock:/var/run/docker.sock -v PATHTOMOUNTEDDISK:/py/mountedDisk -v /tmp/.X11-unix:/tmp/.X11-unix dockerkj python3 kafkaConsumeRunCommand.py
 
 
 

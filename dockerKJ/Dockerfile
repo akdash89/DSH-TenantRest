@@ -4,7 +4,7 @@ LABEL name="Docker image for Tenant with Jenkins"
 
 ARG ssh_port=22
 
-RUN apk add --no-cache git openssh-client curl gcc unzip bash nano ttf-dejavu coreutils libpcap-dev python3-tkinter
+RUN apk add --no-cache git openssh-client curl gcc unzip bash nano ttf-dejavu coreutils libpcap-dev python3-tkinter docker
 
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
   && apk add --update \
