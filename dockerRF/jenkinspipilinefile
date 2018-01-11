@@ -1,0 +1,15 @@
+node {
+    def app
+stage('clone repo') {
+       git 'https://github.com/RakiP/Testcases.git'
+       //git 'https://dash501@git.kpn.org/scm/~parta500/dsh-testcases.git'
+            sh 'echo "clone successfull"'
+    }
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+        // git 'https://github.com/RakiP/dockerRF'
+         sh 'rsync -avz -e "sshpass -p Sim@1234 ssh -o StrictHostKeyChecking=no" . amidash@172.17.0.1:/home/amidash/DSH-TenantRest/dockerRF/mountedDisk'
+        sh 'echo "push to mounted disk successfull"'
+    }
+    }
